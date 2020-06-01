@@ -42,7 +42,10 @@ unix:LIBS += -L"/usr/local/zed/lib"
 unix:LIBS += -L"/usr/lib/aarch64-linux-gnu/tegra/"
 
 ################### SPECIFIC CUDA VERSION
-CUDA_NB = 102 ## Set CUDA version here
+CUDA_NB = 100 ## Set CUDA version here
+#CUDA_NB = 102 ## Set CUDA version here
+
+
 
 equals(CUDA_NB,90){
 CUDA_VERSION="9.0"
