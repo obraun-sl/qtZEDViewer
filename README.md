@@ -15,13 +15,15 @@ https://github.com/obraun-sl/qtZEDViewer/blob/master/qtZEDViewer.pro#L45
 
 For example, if you are using CUDA 10.2, set 
 CUDA_NB = 102
+
 If you are using CUDA 10.0, set 
 CUDA_NB = 100
 
 
 ### Build
-In the folder where the .pro file is located :
-$ qmake && make
+In the folder where the .pro file is located:
+
+`$ qmake && make`
 
 This will generate the executable inside the build directory.
 
