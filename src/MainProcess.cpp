@@ -65,11 +65,11 @@ MainProcess::~MainProcess() {
 void MainProcess::setContext() {
 
     if (Ui->getImageViewer()!=nullptr)
-    Ui->getImageViewer()->InitGLProcess(capture->context,capture->gpuImage,true);
+    Ui->getImageViewer()->InitGLProcess(capture->context,capture->gpuImage);
 
 
     if (Ui->getDepthViewer()!=nullptr)
-    Ui->getDepthViewer()->InitGLProcess(capture->context,capture->gpuDepth,true);
+    Ui->getDepthViewer()->InitGLProcess(capture->context,capture->gpuDepth);
 
 }
 

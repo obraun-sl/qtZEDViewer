@@ -20,13 +20,13 @@ OGLWindow::OGLWindow(QWidget* parent) : QOpenGLWidget(parent) {
     h_viewport = parent ? parent->height() : 1080 / 2;
 }
 
-void OGLWindow::InitGLProcess(CUcontext& ctx, sl::Mat& im, bool disp_image) {
+void OGLWindow::InitGLProcess(CUcontext& ctx, sl::Mat& im) {
     context = ctx;
     this->im_w = im.getWidth();
     this->im_h = im.getHeight();
     this->im_s = im.getStepBytes(sl::MEM::GPU);
     p_d_data = im.getPtr<unsigned char>(sl::MEM::GPU);
-    DisplayImage = disp_image;
+    DisplayImage = true;
     
     makeCurrent();
     cuCtxSetCurrent(context);
@@ -47,7 +47,7 @@ void OGLWindow::InitGLProcess(CUcontext& ctx, sl::Mat& im, bool disp_image) {
     err1 = cudaGraphicsGLRegisterImage(&this->pcuImageRes_, this->imageTex_, GL_TEXTURE_2D, cudaGraphicsMapFlagsNone);
 
     if (err1 != cudaSuccess) {
-        std::cout <<"[ZED Depth Viewer] "<<"Cuda Error: "<<cudaGetErrorName(err1) << std::endl;
+        std::cout <<"[qtZedViewer] "<<"Cuda Error: "<<cudaGetErrorName(err1) << std::endl;
         return;
     }
 

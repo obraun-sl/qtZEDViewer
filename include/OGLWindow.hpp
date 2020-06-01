@@ -1,17 +1,18 @@
-#ifndef __OGL_2D_WIDGET_H__
-#define __OGL_2D_WIDGET_H__
+#ifndef __Qt_OGLWindow_H__
+#define __Qt_OGLWindow_H__
 
 #include <QGLWidget>
 #include <QGLFramebufferObject>
 #include <QtOpenGL>
+#include <QtGui>
+#include <QtWidgets>
 
 #include "cuda.h"
 #include "cuda_runtime.h"
 #include "cuda_gl_interop.h"
-#include <sl_zed/Camera.hpp>
 
-#include <QtGui>
-#include <QtWidgets>
+#include <sl/Camera.hpp>
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
@@ -25,7 +26,7 @@ public:
     ~OGLWindow();
 
     void Deinit();
-    void InitGLProcess(CUcontext &ctx, sl::Mat &im, bool disp_image);
+    void InitGLProcess(CUcontext &ctx, sl::Mat &im);
 
 protected:
     void initializeGL();
